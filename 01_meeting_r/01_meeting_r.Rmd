@@ -1,0 +1,92 @@
+---
+title: "Meeting R"
+output:
+  learnr::tutorial:
+      progressive: true
+runtime: shiny_prerendered
+description: >
+  Learn the basics of R: interpreter, expressions, evaluation and variables.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Interpreter and expressions
+
+We'll see here how we can write R expressions and get them executed.
+
+
+### R as a calculator 
+
+Write the R code required to add two plus two:
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+
+```{r two-plus-two-solution}
+2+2
+```
+
+### Great! You made it!
+Do you see something strange? Well, what about the [1] in the output? Keep it in the back of your head!
+
+
+### Hello world!
+
+Write the R code to print "Hello world!".
+
+```{r hello, exercise=TRUE}
+print('miao')
+```
+
+```{r hello-solution}
+print('Hello world!')
+```
+
+### Your first function
+`print` is an R function, provided by the `base` package. More on functions and packages in the theory.
+
+
+## Variables
+
+### Using variables
+
+Variables are a basic element of every programming language. Try to use two variables to add 2 with 3.
+
+```{r variables, exercise=TRUE}
+a = 2
+b = 6
+a * b
+```
+
+```{r variables-solution}
+a = 2
+b = 3
+a + b
+```
+
+### Varying variables
+
+This things are called variables for a reason, right? Try to make `a` evaluate to 6.
+
+```{r change-variables, exercise=TRUE}
+a = 2
+print(a)
+
+# do stuff
+
+# a should now be 6
+print(a)
+```
+
+```{r change-variables-solution}
+a = 2
+print(a)
+
+a = 6
+print(a)
+```

@@ -102,4 +102,115 @@ y = 2 * sin(2 * x) + cos(x) + 3 * cos(3 * x)
 qplot(x, y, geom = 'line')
 ```
 
+## Writing functions
 
+Writing functions is a daily task for a developer. We'll start with some easy example here. We'll go into more details in the next sessions.
+
+### Summing numbers
+
+Write a simple function to sum two numbers and test it.
+
+```{r fun1, exercise=TRUE}
+add_numbers = function(a, b) {
+  # complete here
+}
+
+add_numbers(2, 2)
+```
+
+```{r fun1-solution}
+add_numbers = function(a, b) {
+  return(a + b)
+}
+
+add_numbers(2, 2)
+```
+
+### Testing corner cases
+
+What happens if we try to sum two strings? Let us try. Use the function `add_numbers` on two variables of type `character`.
+
+```{r fun2, exercise=TRUE}
+
+
+
+
+
+```
+
+```{r fun2-solution}
+add_numbers = function(a, b) {
+  return(a + b)
+}
+
+x = 'miao'
+y = 'bau'
+
+add_numbers(x, y)
+```
+
+### Adding type checks
+
+It does not work. In other languages it would, but R does not allow you to use the `+` operator on strings. So, maybe we should add some type of check. Modify the function `add_numbers` so that it throws an error if the type of either input is not numeric. Then, test it with strings.
+
+<div class="alert alert-info">
+  **Wait!** What do you mean with "throwing errors"? Try running `?stop` on the R console and Google for the `if` statement in R!
+</div>
+
+```{r fun3, exercise=TRUE}
+add_numbers = function(a, b) {
+  # complete here
+}
+
+x = 'miao'
+y = 'bau'
+
+add_numbers(x, y)
+```
+
+```{r fun3-solution}
+add_numbers = function(a, b) {
+  if ((!is.numeric(a)) | (!is.numeric(b))){
+    stop('You shall not pass. Only numeric inputs are allowed.')
+  }
+  return(a + b)
+}
+
+x = 'miao'
+y = 'bau'
+
+add_numbers(x, y)
+```
+
+### Managing strings
+
+Last update. We need now to make a new function `add_stuff`, with the same behavior of `add_numbers` for numeric inputs but capable of handling strings. If two strings are passed, we must return the concatenation of the strings. For example, `add_stuff('bau', 'miao')` should return `[1] 'baumiao'`.
+
+<div class="alert alert-info">
+  **Hint** Have a look to `?paste0` and Google for the `if` statement in R!
+</div>
+
+```{r fun4, exercise=TRUE}
+add_stuff = function(a, b) {
+  # complete here
+}
+
+print(add_stuff('bau', 'miao'))
+print(add_stuff(2, 2))
+print(add_stuff(2, 'miao')) # this line should result in an error. Remove it in the exercise to see the difference
+```
+
+```{r fun4-solution}
+add_stuff = function(a, b) {
+  if (is.numeric(a) & is.numeric(b)){
+    return(a + b)
+  } else if (is.character(a) & is.character(b)) {
+    return(paste0(a, b))
+  }
+  stop('You shall not pass. Only numeric inputs are allowed.')
+}
+
+print(add_stuff('bau', 'miao'))
+print(add_stuff(2, 2))
+print(add_stuff(2, 'miao')) # this line should result in an error. Remove it in the exercise to see the difference
+```

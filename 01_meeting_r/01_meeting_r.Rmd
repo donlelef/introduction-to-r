@@ -21,7 +21,7 @@ We'll see here how we can write R expressions and get them executed.
 
 ### R as a calculator 
 
-Write the R code required to add two plus two:
+Write the R code required to compute two plus two:
 
 ```{r two-plus-two, exercise=TRUE}
 
@@ -89,4 +89,92 @@ print(a)
 
 a = 6
 print(a)
+```
+
+## Types
+
+Types are a fundamental part of every programming language. R adopts dynamic typing, meaning that types are inferred by the language and the programmer does not need to make them explicit.
+
+### Base types
+
+In the following snippet you find five variables of different types. Write the code to print the type of each.
+
+```{r types, exercise=TRUE}
+a = 2
+b = 'miao'
+c = TRUE
+d = 3.14
+e = 2+2i
+
+```
+
+```{r types-solution}
+a = 2
+b = 'miao'
+c = TRUE
+d = 3.14
+e = 2+2i
+
+print(class(a))
+print(class(b))
+print(class(c))
+print(class(d))
+print(class(e))
+```
+
+### Numeric types 1
+The variables `a` and `d` share the same type. Actually, the same high-level type. Do they share also the same low-level type? Check it below.
+```{r numeric-types-1, exercise=TRUE}
+a = 2
+d = 3.14
+
+```
+
+```{r numeric-types-1-solution}
+a = 2
+d = 3.14
+
+print(typeof(a))
+print(typeof(d))
+```
+
+### Numeric types 2
+
+Yes, looks like they do. Change the code to make `a` an integer.
+
+```{r numeric-types-2, exercise=TRUE}
+a = 2
+
+print(typeof(a))
+```
+
+```{r numeric-types-2-solution}
+a = 2L
+print(typeof(a))
+```
+
+### Checking types 1
+
+How would you check if the following variable is numeric?.
+
+```{r checking-types-1, exercise=TRUE}
+a = 2
+```
+
+```{r checking-types-1-solution}
+a = 2
+is.numeric(a)
+```
+
+### Checking types 2
+
+How would you check if the following variable is an integer?.
+
+```{r checking-types-2, exercise=TRUE}
+a = 2
+```
+
+```{r checking-types-2-solution}
+a = 2
+is.integer(a)
 ```

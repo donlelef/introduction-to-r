@@ -1,0 +1,108 @@
+---
+title: "Data Structures"
+output:
+  learnr::tutorial:
+      progressive: true
+runtime: shiny_prerendered
+description: >
+  Use vectors, lists, and dataframes: the most common data structures in R.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Vectors
+
+Vectors are the simplest data structure. In R, also scalar variables are treated as vectors.
+
+
+### Creating vetors
+
+Let us create some vector. For instance, create a vector `int_vec` of two integers and a vector `char_vec` of two strings.
+
+```{r vect-1, exercise=TRUE}
+
+
+
+
+```
+
+```{r vect-1-solution}
+int_vec = c(1L, 2L)
+char_vec = c('Miao', 'Bau')
+```
+
+### Creating sequences
+
+Many R functions return vectors. For instance, let us create a vector of 100 equally spaced real numbers between 1 and 10.
+
+<div class="alert alert-info">
+  **Hint** You already know it. Google is your friend. But so I am: try running `?seq`.
+</div>
+
+
+```{r vect-2, exercise=TRUE}
+
+
+
+```
+
+```{r vect-2-solution}
+x = seq(1, 10, length.out = 100)
+x
+```
+
+### Vector operations 1
+
+R supports natively operations between numeric vectors. For example, if you add two vectors, elements get summed up element-wise. Compute and print the element-wise sum and multiplication of the following vectors.
+
+```{r vect-3, exercise=TRUE}
+x = c(1, 2, 3)
+y = c(9, 8, 7)
+
+```
+
+```{r vect-3-solution}
+x = c(1, 2, 3)
+y = c(9, 8, 7)
+print(x+y)
+print(x*y)
+```
+
+### Vector operations 2
+
+Same as before. But, wait: before running the code, what do you expect?
+
+```{r vect-4, exercise=TRUE}
+x = c(1, 2, 3, 4, 5)
+y = c(9, 8)
+
+```
+
+```{r vect-4-solution}
+x = c(1, 2, 3, 4, 5)
+y = c(9, 8)
+print(x+y)
+print(x*y)
+```
+
+### Functions on vectors
+
+Several R functions work on vectors. Compute and print the mean, standard deviation, max and min of the following vector.
+
+```{r vect-5, exercise=TRUE}
+x = c(1, 5, 7, 2, 4)
+
+
+```
+
+```{r vect-5-solution}
+x = c(1, 5, 7, 2, 4)
+print(mean(x))
+print(sd(x))
+print(max(x))
+print(min(x))
+```

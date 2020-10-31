@@ -1,11 +1,11 @@
 ---
-title: "Meeting R"
+title: "Functions"
 output:
   learnr::tutorial:
       progressive: true
 runtime: shiny_prerendered
 description: >
-  Learn the basics of R: interpreter, expressions, evaluation and variables.
+  Learn how to use functions from the R libraries and how to write your own.
 ---
 
 ```{r setup, include=FALSE}

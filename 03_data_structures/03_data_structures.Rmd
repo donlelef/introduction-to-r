@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 Vectors are the simplest data structure. In R, also scalar variables are treated as vectors.
 
 
-### Creating vetors
+### Creating vectors
 
 Let us create some vector. For instance, create a vector `int_vec` of two integers and a vector `char_vec` of two strings.
 
@@ -105,4 +105,144 @@ print(mean(x))
 print(sd(x))
 print(max(x))
 print(min(x))
+```
+
+## Indexing vectors
+
+Indexing is the operation we perform to access specific elements in the vector. There are several ways of indexing a vector in R, we will experiment some of them.
+
+### Indexing 1
+
+Using positive integers as an index, extract and print a vector containing 5 and 2 from the following vector.
+
+```{r index-1, exercise=TRUE}
+x = c(1, 5, 7, 2, 4)
+
+
+```
+
+```{r index-1-solution}
+x = c(1, 5, 7, 2, 4)
+print(x[c(2, 4)])
+```
+
+### Indexing 2
+
+Using negative integers as an index, extract and print a vector containing 5 and 2 from the following vector.
+
+```{r index-2, exercise=TRUE}
+x = c(1, 5, 7, 2, 4)
+
+
+```
+
+```{r index-2-solution}
+x = c(1, 5, 7, 2, 4)
+print(x[- c(1, 3, 5)])
+```
+
+### Indexing 3
+
+Using logical values as an index, extract and print a vector containing 5 and 2 from the following vector.
+
+```{r index-3, exercise=TRUE}
+x = c(1, 5, 7, 2, 4)
+
+
+```
+
+```{r index-3-solution}
+x = c(1, 5, 7, 2, 4)
+print(x[c(F, T, F, T, F)])
+```
+
+### Indexing 4
+
+Extract and print the first three elements of the following vector.
+
+```{r index-4, exercise=TRUE}
+x = c(1, 5, 7, 2, 4)
+
+
+```
+
+```{r index-4-solution}
+x = c(1, 5, 7, 2, 4)
+print(x[1:3])
+```
+
+### Indexing 5
+
+Extract and print the last three elements of the following vector.
+
+```{r index-5, exercise=TRUE}
+x = c(1, 5, 7, 2, 4)
+
+
+```
+
+```{r index-5-solution}
+x = c(1, 5, 7, 2, 4)
+print(x[3:length(x)])
+```
+
+## Lists
+
+Vectors are made of elements of the same type, lists are not. We'll play with lists in the next exercises.
+
+### Creating lists
+
+Let us create a list, where element `a` equals `'miao'`, element `b` equals `2` and element `c` equals a vector made of 1 and 3.
+
+```{r list-1, exercise=TRUE}
+x = list() # complete this line
+x
+```
+
+```{r list-1-solution}
+x = list(a = 'miao', b = 2, c = c(1, 3)) # complete this line
+x
+```
+
+### Indexing lists 1
+
+Extract from the following list the element `b`.
+
+```{r list-2, exercise=TRUE}
+x = list(a = 'miao', b = 2, c = c(1, 3))
+
+```
+
+```{r list-2-solution}
+x = list(a = 'miao', b = 2, c = c(1, 3))
+x$b
+```
+
+### Indexing lists 2
+
+Extract from the following list the element `b`, returning a list.
+
+```{r list-3, exercise=TRUE}
+x = list(a = 'miao', b = 2, c = c(1, 3))
+
+```
+
+```{r list-3-solution}
+x = list(a = 'miao', b = 2, c = c(1, 3))
+x['b']
+```
+
+### Indexing lists 3
+
+Extract from the following list the element `3` of the element `c`.
+
+```{r list-4, exercise=TRUE}
+x = list(a = 'miao', b = 2, c = c(1, 3))
+
+```
+
+```{r list-4-solution}
+x = list(a = 'miao', b = 2, c = c(1, 3))
+c_vect = x$c
+c_vect[2]
 ```

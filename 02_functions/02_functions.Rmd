@@ -1,0 +1,105 @@
+---
+title: "Meeting R"
+output:
+  learnr::tutorial:
+      progressive: true
+runtime: shiny_prerendered
+description: >
+  Learn the basics of R: interpreter, expressions, evaluation and variables.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Functions
+
+Functions are reusable chunks of code which perform a specific operation. Many useful functions are defined in existing R packages, but you can always write your own.
+
+
+### Base functions
+
+Many useful functions have already been implemented. No need to reinvent the wheel! Try printing the variables in the following chunk using the `print` function of the `base` package.
+
+```{r print, exercise=TRUE}
+a = 1
+b = c(1.1, 2.2, 3.3)
+l = list(a='miao', b=2)
+
+```
+
+```{r print-solution}
+a = 1
+b = c(1.1, 2.2, 3.3)
+l = list(a='miao', b=2)
+
+print(a)
+print(b)
+print(l)
+```
+
+### Plotting
+
+Also, R has great functions for plotting. Use the `plot` function in the `base` package to perform a line plot of x versus y.
+
+<div class="alert alert-info">
+  **Wait!** How do you do a line plot? I'm not telling you, but there a are two hints. Try running `?plot`   on the R console and try searching on Google!
+</div>
+
+
+```{r plot, exercise=TRUE}
+x = seq(0, 10, 0.01)
+y = 2 * sin(2 * x) + cos(x) + 3 * cos(3 * x)
+
+```
+
+```{r plot-solution}
+x = seq(0, 10, 0.01)
+y = 2 * sin(2 * x) + cos(x) + 3 * cos(3 * x)
+plot(x, y, 'l')
+```
+
+### Installing pakages
+
+The plot was good, but `ggplot2` is better. Let us install `ggplot2` first. The function `install.packages` installs packages from the CRAN archive.
+
+```{r ggplot-install, exercise=TRUE}
+
+
+
+```
+
+```{r ggplot-install-solution}
+install.packages('ggplot2')
+```
+
+### Better plotting
+
+Try and create the same plot as before using `ggplot2`. Remember to load the package with `library` before using it.
+
+```{r ggplot, exercise=TRUE}
+# load package with library
+
+# create some data
+x = seq(0, 10, 0.01)
+y = 2 * sin(2 * x) + cos(x) + 3 * cos(3 * x)
+
+# make plot
+
+```
+
+```{r ggplot-solution}
+# load package with library
+library(ggplot2)
+
+# create some data
+x = seq(0, 10, 0.01)
+y = 2 * sin(2 * x) + cos(x) + 3 * cos(3 * x)
+
+# make plot
+qplot(x, y, geom = 'line')
+```
+
+

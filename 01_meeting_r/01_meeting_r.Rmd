@@ -32,12 +32,18 @@ Write the R code required to compute two plus two:
 ```
 
 ### Great! You made it!
-Do you see something strange? Well, what about the [1] in the output? Keep it in the back of your head!
+<div class="alert alert-info">
+  **Wait!** Do you see something strange? Well, what about the [1] in the output? Keep it in the back of your head!
+</div>
 
 
 ### Hello world!
 
 Write the R code to print "Hello world!".
+
+<div class="alert alert-info">
+  `print` is an **R function**, provided by the `base` package. More on functions and packages in the theory.
+</div>
 
 ```{r hello, exercise=TRUE}
 print('miao')
@@ -46,9 +52,6 @@ print('miao')
 ```{r hello-solution}
 print('Hello world!')
 ```
-
-### Your first function
-`print` is an R function, provided by the `base` package. More on functions and packages in the theory.
 
 
 ## Variables

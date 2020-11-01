@@ -40,3 +40,4 @@ vignettes/*.pdf
 
 # Output of rmd execution
 *.html
+04_diamonds/04_diamonds_files/*

@@ -1,0 +1,103 @@
+---
+title: "Diamonds"
+output:
+  learnr::tutorial:
+      progressive: true
+runtime: shiny_prerendered
+description: >
+  Your first dataset: learn how to import, manage and explore data.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Diamonds: a case study
+
+The diamonds dataset that we will use in this application exercise consists of prices and quality information from about 54,000 diamonds. We'll use it ad a gym to address data exploration.
+
+## The dataset
+
+The dataset contains information on prices of diamonds, as well as various attributes of diamonds, some of which are known to influence their price (in 2008 US Dollars): the 4 Cs (`carat`, `cut`, `color`, and `clarity`), as well as some physical measurements (`depth`, `table`, `price`, `x`, `y`, and `z`). 
+
+Physical measurements are explained by the following picture. Credits to [Duke university](https://www2.stat.duke.edu/courses/Fall15/sta112.01/post/hw/HW1.html) for the pictures.
+
+<center>
+
+![Meaning of physical measurements in the diamonds dataset](./images/diamonds_measurements.png)
+</center>
+
+The carat is a unit of mass equal to 200 mg and is used for measuring gemstones and pearls. Cut grade is is an objective measure of a diamond’s light performance, or, what we generally think of as sparkle.
+
+The figure below shows color grading of diamonds.
+
+<center>
+
+![Meaning of color in the diamonds dataset](./images/diamonds_color.png)
+
+</center>
+
+Lastly, the figure below shows clarity grading of diamonds.
+
+<center>
+
+![Meaning of clarity in the diamonds dataset](./images/diamonds_clarity.png)
+</center>
+
+## Import data
+
+The `diamonds` dataset in included in `ggplot2`. Yes, R packages may contain datasets - and many do. Because datasets are important to showcase the features of the package.
+
+Thus, you can simply load the dataset by running:
+
+```{r}
+library(ggplot2)
+diamonds
+```
+
+But.
+
+In real life, things are not that easy. Therefore, we'll go down the hard way and load the dataset from a file. Fortunately, a csv is available on github at the link https://raw.githubusercontent.com/tidyverse/ggplot2/master/data-raw/diamonds.csv.
+
+Let us load tidyverse. The following command will load all the packages in the tidyverse.
+
+```{r}
+library(tidyverse)
+```
+
+We may talk about what conflicts are, but you can safely ignore them. 
+
+One of the loaded packages is `readr`. Let's use it.
+
+```{r}
+raw_data_set = read_csv('https://raw.githubusercontent.com/tidyverse/ggplot2/master/data-raw/diamonds.csv')
+raw_data_set
+```
+
+Nice! We have our dataset. But hold on! If we compare `data_set` with `diamonds`, we see that they are not the same. The types of the variables differ. In particular, the automatic type inference of `readr` has chose the type `character` for `cut`, `color` and `clarity`, while we know that they should be factors. We'll fix this in the next section.
+
+## Data preparation
+
+We want here to prepare our dataset for the analysis. 
+
+We need to change the type of three columns: `cut`, `color`, and `clarity` should be ordered factors. We turn to tidyverse for help. 
+
+```{r}
+data_set = raw_data_set %>% 
+  mutate(
+    color = factor(
+      color, 
+      levels = c('D', 'E', 'F', 'G', 'H', 'I', 'J'), 
+      ordered = T),
+    cut = factor(
+      cut, 
+      levels = c("Fair", "Good", "Very Good", "Premium", "Ideal"), 
+      ordered = T),
+    clarity = factor(
+      clarity, 
+      levels = c("I1", "SI2", "SI1", "VS2", "VS1", "VVS2", "VVS1", "IF"), 
+      ordered = T)
+  )
+data_set
+```
